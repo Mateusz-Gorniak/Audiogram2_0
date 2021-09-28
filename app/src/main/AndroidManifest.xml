@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Audiogram2_0">
         <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

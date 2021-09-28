@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "65676851826",
+    "project_id": "android20-2bf20",
+    "storage_bucket": "android20-2bf20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65676851826:android:ba3e198bef7bc629a8e0eb",
+        "android_client_info": {
+          "package_name": "pl.gorniak.audiogram2_0"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "65676851826-1sujhh490qiq3kh5l7rtq7aasv6du45t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7wDIFOqCX9OogfHIMVFB5FxkaeLJ6gTM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "65676851826-1sujhh490qiq3kh5l7rtq7aasv6du45t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
