@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="pl.gorniak.audiogram2_0">
 
     <application
@@ -9,6 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Audiogram2_0">
+        <activity
+            android:name=".AboutGraphActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AboutAppActivity"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
