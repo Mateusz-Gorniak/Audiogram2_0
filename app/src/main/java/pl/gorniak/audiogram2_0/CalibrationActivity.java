@@ -2,6 +2,7 @@ package pl.gorniak.audiogram2_0;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
@@ -11,9 +12,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CalibrationActivity extends AppCompatActivity {
@@ -27,14 +28,49 @@ public class CalibrationActivity extends AppCompatActivity {
     Button buttonCalibration;
     Button buttonStart;
     Button buttonStop;
-    TextView calibraionLabel;
+    AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calibration);
+
         myReceiver = new MusicIntentReceiver();
         audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
+
+        builder = new AlertDialog.Builder(this);
+        buttonCalibration = (Button) findViewById(R.id.calibrationButton1);
+        buttonCalibration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mp.stop();
+                builder.setMessage("Gdy prawidłowo przeprowadzono procedurę kalibracji, powinien być słyszalny tylko jeden ton.\n\n" +
+                        "Jeżeli tak - od tego momentu nie zmieniaj poziomu głośności urządzenia\n" +
+                        "Jeżeli nie - powtórz prcedurę kalibracji")
+                        .setCancelable(false)
+                        .setPositiveButton("Tak", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                finish();
+                                Toast.makeText(getApplicationContext(), "Teraz możesz przeprowadzić badanie słuchu",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("Nie", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                //  Action for 'NO' Button
+                                dialog.cancel();
+                                Toast.makeText(getApplicationContext(), "Powtórz procedurę kalibracji",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                //Creating dialog box
+                AlertDialog alert = builder.create();
+                //Setting the title manually
+                alert.setTitle("Procedura kalibracji");
+                alert.show();
+            }
+        });
+
 
         int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
         int currentVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
@@ -53,27 +89,28 @@ public class CalibrationActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
         });
-    }
-
-    public void onHearSound(View view) {
-
     }
 
     public void onCalibrationClick(View view) {
         mp = MediaPlayer.create(this, R.raw.testzz);
-        mp.setVolume(leftVolume,rightVolume);
+        mp.setVolume(leftVolume, rightVolume);
         mp.start();
+        //buttonStart.setEnabled(false);
 
     }
 
     public void onStopClick(View view) {
         mp.stop();
+        //buttonStart.setEnabled(true);
     }
+
     @Override
     public void onResume() {
         IntentFilter filter = new IntentFilter(Intent.ACTION_HEADSET_PLUG);
@@ -90,16 +127,16 @@ public class CalibrationActivity extends AppCompatActivity {
                     case 0:
                         Log.d(TAG, "Headset is unplugged");
                         Toast.makeText(CalibrationActivity.this, "Unplugged", Toast.LENGTH_SHORT).show();
-//                        buttonCalibration.setEnabled(false);
-//                        buttonStart.setEnabled(false);
-//                        buttonStop.setEnabled(false);
+                        buttonCalibration.setEnabled(false);
+                        buttonStart.setEnabled(false);
+                        buttonStop.setEnabled(false);
                         break;
                     case 1:
                         Log.d(TAG, "Headset is plugged");
                         Toast.makeText(CalibrationActivity.this, "Plugged", Toast.LENGTH_SHORT).show();
-//                        buttonCalibration.setEnabled(true);
-//                        buttonStart.setEnabled(true);
-//                        buttonStop.setEnabled(true);
+                        buttonCalibration.setEnabled(true);
+                        buttonStart.setEnabled(true);
+                        buttonStop.setEnabled(true);
                         break;
                     default:
                         Log.d(TAG, "I have no idea what the headset state is");

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AudiogramBeta</string>
+    <string name="app_name">Audiogram Beta</string>
     <string name="audiogram">Audiogram</string>
     <string name="calibration">Kalibracja</string>
     <string name="startapp">Start</string>

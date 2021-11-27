@@ -115,14 +115,13 @@
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/calibrationButton"
+        android:id="@+id/calibrationButton1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/btn_shape"
         android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:onClick="onHearSound"
         android:paddingVertical="15dp"
         android:text="@string/hear_sound"
         android:textSize="20sp"
