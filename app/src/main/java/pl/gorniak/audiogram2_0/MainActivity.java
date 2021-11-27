@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView menu_show;
     private MenuBuilder menuBuilder;
+    private Button calibrateButton;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -29,10 +31,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         menu_show = (ImageView) findViewById(R.id.show_menu);
+        calibrateButton = (Button)findViewById(R.id.calibrationButton);
 
         menuBuilder = new MenuBuilder(this);
         MenuInflater inflater = new MenuInflater(this);
         inflater.inflate(R.menu.menu, menuBuilder);//this will show our menu list we add
+
+
+        calibrateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,CalibrationActivity.class));
+            }
+        });
 
         //Set item click listener
         menu_show.setOnClickListener(new View.OnClickListener() {

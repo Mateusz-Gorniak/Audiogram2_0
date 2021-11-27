@@ -5,7 +5,7 @@
     <string name="startapp">Start</string>
     <string name="logout">Wyloguj</string>
     <string name="aboutprogram">O programie</string>
-    <string name="calibration_buttons_desc">Kalibruj -> odtwarza sygnał kalibracji <br /> <br /> Stop ->zatrzymuje sygnał kalibracji</string>
+    <string name="calibration_buttons_desc">Przycisk Kalibruj odtwarza sygnał kalibrujący <br /> Przycisk Stop zatrzymuje sygnał kalibrujący</string>
     <string name="backtomainpage">Strona Główna</string>
     <string name="save">Zapisz</string>
     <string name="headphones_in">Podłącz słuchawki</string>
@@ -17,8 +17,7 @@
     <string name="graph_desribe">Audiogram to wykres, który obrazuje jaki jest najcichszy dźwięk, który badana osoba jest w stanie usłyszeć. Badanie przeprowadza się na dźwiękach o różnych częstotliwościach (tj. wysokościach) dzięki czemu można określić próg słyszalności dla różnych dźwięków. Na osi pionowej umieszczone zostały wartości w dB HL im mniej dB zostanie uzyskanych w badaniu tym mniejszy jest ubytek słuchu. Norma w badaniach plasuje się na wyniku poniżej 25 dB HL włącznie. Na osi poziomej naniesione zostały częstotliwości. Wartość czułości naszego słuchu znajduje się zatem na przecięciu tych dwóch wartości.</string>
     <string name="about_pp">Zbudowana przez nas aplikacja, na podstawie generowanych sygnałów określa poziom ubytku słuchu.Wynikiem badania jest obliczony ilościowo ubytek słuchu oraz wygenerowany na tej podstawie wykres.</string>
     <string name="audiogramgraph">Wykres Audiogram</string>
-    <string name="about_calibration">Sygnałem kalibracyjnym jest ton 1kHz o amplitudzie zmieniającej się naprzemiennie w co
-5dB okresie co 1 s. </string>
+    <string name="about_calibration">Sygnałem kalibracyjnym jest ton 1kHz o amplitudzie zmieniającej się naprzemiennie w co 5dB okresie co 1 s. </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- Strings used for fragments for navigation -->

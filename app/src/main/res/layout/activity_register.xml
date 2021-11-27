@@ -23,6 +23,7 @@
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:textStyle="bold"
+
         />
 
     <EditText

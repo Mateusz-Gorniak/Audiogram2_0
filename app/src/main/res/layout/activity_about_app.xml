@@ -107,6 +107,7 @@
             android:layout_marginRight="15dp"
             android:gravity="center"
             android:padding="5dp"
+            android:justificationMode="inter_word"
             android:text="@string/about_pp"
             android:textColor="@color/black"
             android:textSize="18sp" />

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
         android:src="@mipmap/ic_launcher_foreground"
-        app:layout_constraintBottom_toTopOf="@+id/appCompatButton5"
+        app:layout_constraintBottom_toTopOf="@+id/calibrationButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,11 +58,11 @@
 
     <androidx.appcompat.widget.AppCompatButton
 
-        android:id="@+id/appCompatButton5"
+        android:id="@+id/calibrationButton"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_shape"
-        app:layout_constraintBottom_toTopOf="@+id/appCompatButton3"
+        app:layout_constraintBottom_toTopOf="@+id/startButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,15 +78,15 @@
     <androidx.appcompat.widget.AppCompatButton
 
 
-        android:id="@+id/appCompatButton3"
+        android:id="@+id/startButton"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_shape"
-        app:layout_constraintBottom_toTopOf="@+id/appCompatButton4"
+        app:layout_constraintBottom_toTopOf="@+id/profileButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton5"
+        app:layout_constraintTop_toBottomOf="@+id/calibrationButton"
         app:layout_constraintVertical_weight="1"
         android:layout_marginBottom="20dp"
         android:text="@string/startapp"
@@ -94,7 +94,7 @@
         />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton4"
+        android:id="@+id/profileButton"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_shape"
@@ -102,7 +102,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton3"
+        app:layout_constraintTop_toBottomOf="@+id/startButton"
         app:layout_constraintVertical_weight="1"
         android:text="Profil"
         android:padding="20dp"
