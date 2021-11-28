@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Audiogram2_0">
         <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".CalibrationActivity"
             android:exported="true" />
         <activity

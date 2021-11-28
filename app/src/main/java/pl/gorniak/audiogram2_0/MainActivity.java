@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView menu_show;
     private MenuBuilder menuBuilder;
     private Button calibrateButton;
+    private Button profileButton;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -32,10 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         menu_show = (ImageView) findViewById(R.id.show_menu);
         calibrateButton = (Button)findViewById(R.id.calibrationButton);
-
-        menuBuilder = new MenuBuilder(this);
-        MenuInflater inflater = new MenuInflater(this);
-        inflater.inflate(R.menu.menu, menuBuilder);//this will show our menu list we add
+        profileButton = (Button) findViewById(R.id.profileButton);
 
 
         calibrateButton.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +42,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,CalibrationActivity.class));
             }
         });
+
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,ProfileActivity.class));
+            }
+        });
+
+        menuBuilder = new MenuBuilder(this);
+        MenuInflater inflater = new MenuInflater(this);
+        inflater.inflate(R.menu.menu, menuBuilder);//this will show our menu list we add
 
         //Set item click listener
         menu_show.setOnClickListener(new View.OnClickListener() {

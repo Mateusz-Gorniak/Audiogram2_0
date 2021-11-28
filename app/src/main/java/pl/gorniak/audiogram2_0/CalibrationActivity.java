@@ -38,12 +38,16 @@ public class CalibrationActivity extends AppCompatActivity {
         myReceiver = new MusicIntentReceiver();
         audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
 
-        builder = new AlertDialog.Builder(this);
+        buttonStart = (Button) findViewById(R.id.startButton);
+        buttonStop = (Button) findViewById(R.id.stopButton);
         buttonCalibration = (Button) findViewById(R.id.calibrationButton1);
+        buttonStop.setEnabled(false);
+        buttonCalibration.setEnabled(false);
+
+        builder = new AlertDialog.Builder(this);
         buttonCalibration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mp.stop();
                 builder.setMessage("Gdy prawidłowo przeprowadzono procedurę kalibracji, powinien być słyszalny tylko jeden ton.\n\n" +
                         "Jeżeli tak - od tego momentu nie zmieniaj poziomu głośności urządzenia\n" +
                         "Jeżeli nie - powtórz prcedurę kalibracji")
@@ -68,17 +72,29 @@ public class CalibrationActivity extends AppCompatActivity {
                 //Setting the title manually
                 alert.setTitle("Procedura kalibracji");
                 alert.show();
+                mp.stop();
+            }
+        });
+        buttonStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mp.stop();
             }
         });
 
+        buttonStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buttonCalibration.setEnabled(true);
+                buttonStop.setEnabled(true);
+                mp = MediaPlayer.create(CalibrationActivity.this,R.raw.testzz);
+                mp.setVolume(leftVolume, rightVolume);
+                mp.start();
+            }
+        });
 
         int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
         int currentVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
-
-        buttonCalibration = (Button) findViewById(R.id.calibrationButton);
-        buttonStart = (Button) findViewById(R.id.startButton);
-        buttonStop = (Button) findViewById(R.id.stopButton);
-
         SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
         seekBar.setMax(maxVolume);
         seekBar.setProgress(currentVolume);
@@ -87,7 +103,6 @@ public class CalibrationActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0);
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
@@ -97,25 +112,16 @@ public class CalibrationActivity extends AppCompatActivity {
             }
         });
     }
-
-    public void onCalibrationClick(View view) {
-        mp = MediaPlayer.create(this, R.raw.testzz);
-        mp.setVolume(leftVolume, rightVolume);
-        mp.start();
-        //buttonStart.setEnabled(false);
-
-    }
-
-    public void onStopClick(View view) {
-        mp.stop();
-        //buttonStart.setEnabled(true);
-    }
-
     @Override
     public void onResume() {
         IntentFilter filter = new IntentFilter(Intent.ACTION_HEADSET_PLUG);
         registerReceiver(myReceiver, filter);
         super.onResume();
+    }
+    @Override
+    public void onPause() {
+        unregisterReceiver(myReceiver);
+        super.onPause();
     }
 
     private class MusicIntentReceiver extends BroadcastReceiver {
@@ -145,9 +151,4 @@ public class CalibrationActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onPause() {
-        unregisterReceiver(myReceiver);
-        super.onPause();
-    }
 }
