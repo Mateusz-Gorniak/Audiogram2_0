@@ -5,15 +5,25 @@
       <map>
         <entry key="..\:/Audiogram2_0/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26615384615384613" />
         <entry key="..\:/Audiogram2_0/app/src/main/res/drawable/background_gradient.xml" value="0.2703125" />
+        <entry key="..\:/Audiogram2_0/app/src/main/res/drawable/background_gradient1.xml" value="0.2703125" />
         <entry key="..\:/Audiogram2_0/app/src/main/res/drawable/background_gradient2.xml" value="0.2703125" />
         <entry key="..\:/Audiogram2_0/app/src/main/res/drawable/background_gradient3.xml" value="0.2703125" />
         <entry key="..\:/Audiogram2_0/app/src/main/res/drawable/btn_shape.xml" value="0.2703125" />
         <entry key="..\:/Audiogram2_0/app/src/main/res/drawable/btn_shape2.xml" value="0.2703125" />
+        <entry key="..\:/Audiogram2_0/app/src/main/res/drawable/custom_email_icon.xml" value="0.26615384615384613" />
+        <entry key="..\:/Audiogram2_0/app/src/main/res/drawable/custom_input.xml" value="0.26615384615384613" />
+        <entry key="..\:/Audiogram2_0/app/src/main/res/drawable/custom_lock_icon.xml" value="0.26615384615384613" />
+        <entry key="..\:/Audiogram2_0/app/src/main/res/drawable/custom_seekbar.xml" value="0.26615384615384613" />
         <entry key="..\:/Audiogram2_0/app/src/main/res/drawable/gradient_animation.xml" value="0.2703125" />
         <entry key="..\:/Audiogram2_0/app/src/main/res/drawable/headphones_ico_foreground.xml" value="0.26615384615384613" />
         <entry key="..\:/Audiogram2_0/app/src/main/res/drawable/ic_email.xml" value="0.2703125" />
+        <entry key="..\:/Audiogram2_0/app/src/main/res/drawable/ic_email_focused.xml" value="0.26615384615384613" />
         <entry key="..\:/Audiogram2_0/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26615384615384613" />
         <entry key="..\:/Audiogram2_0/app/src/main/res/drawable/ic_lock.xml" value="0.2703125" />
+        <entry key="..\:/Audiogram2_0/app/src/main/res/drawable/ic_lock_focused.xml" value="0.26615384615384613" />
+        <entry key="..\:/Audiogram2_0/app/src/main/res/layout/activity_about_app.xml" value="0.25416666666666665" />
+        <entry key="..\:/Audiogram2_0/app/src/main/res/layout/activity_about_graph.xml" value="0.25416666666666665" />
+        <entry key="..\:/Audiogram2_0/app/src/main/res/layout/activity_calibration.xml" value="0.25025641025641027" />
         <entry key="..\:/Audiogram2_0/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Audiogram2_0/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Audiogram2_0/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
@@ -21,32 +31,6 @@
         <entry key="..\:/Projects/Audiogram2_0/app/src/main/res/layout/activity_login.xml" value="0.23854166666666668" />
         <entry key="..\:/Projects/Audiogram2_0/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Projects/Audiogram2_0/app/src/main/res/layout/activity_register.xml" value="0.264" />
-        <entry key="..\:/Projects/AudiogramBeta/app/src/main/res/drawable/background_gradient1.xml" value="0.26615384615384613" />
-        <entry key="..\:/Projects/AudiogramBeta/app/src/main/res/drawable/background_gradient2.xml" value="0.26296296296296295" />
-        <entry key="..\:/Projects/AudiogramBeta/app/src/main/res/drawable/background_gradient3.xml" value="0.2703125" />
-        <entry key="..\:/Projects/AudiogramBeta/app/src/main/res/drawable/btn_shape.xml" value="0.2703125" />
-        <entry key="..\:/Projects/AudiogramBeta/app/src/main/res/drawable/custom_seekbar.xml" value="0.2703125" />
-        <entry key="..\:/Projects/AudiogramBeta/app/src/main/res/drawable/thumb.xml" value="0.2703125" />
-        <entry key="..\:/Projects/AudiogramBeta/app/src/main/res/layout/activity_about_app.xml" value="0.264" />
-        <entry key="..\:/Projects/AudiogramBeta/app/src/main/res/layout/activity_about_app2.xml" value="0.25416666666666665" />
-        <entry key="..\:/Projects/AudiogramBeta/app/src/main/res/layout/activity_about_graph.xml" value="0.264" />
-        <entry key="..\:/Projects/AudiogramBeta/app/src/main/res/layout/activity_calibration.xml" value="0.25416666666666665" />
-        <entry key="..\:/Projects/AudiogramBeta/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
-        <entry key="..\:/Projects/AudiogramBeta/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Projects/AudiogramBeta/app/src/main/res/layout/activity_profile.xml" value="0.20729166666666668" />
-        <entry key="..\:/Projects/AudiogramBeta/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
-        <entry key="..\:/Projects/AudiogramBeta/app/src/main/res/layout/activity_start.xml" value="0.25416666666666665" />
-        <entry key="..\:/Projects/AudiogramBeta/app/src/main/res/layout/fragment_about.xml" value="0.25416666666666665" />
-        <entry key="..\:/Projects/AudiogramBeta/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
-        <entry key="..\:/Projects/AudiogramBeta/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
-        <entry key="..\:/Projects/AudiogramBeta/app/src/main/res/mipmap-anydpi-v26/headphones_ico.xml" value="0.2703125" />
-        <entry key="..\:/Users/slapc/Desktop/audiogram/Audiogram2_0/app/src/main/res/drawable/background_gradient1.xml" value="0.19895833333333332" />
-        <entry key="..\:/Users/slapc/Desktop/audiogram/Audiogram2_0/app/src/main/res/layout/activity_about_app.xml" value="0.264" />
-        <entry key="..\:/Users/slapc/Desktop/audiogram/Audiogram2_0/app/src/main/res/layout/activity_about_graph.xml" value="0.1828125" />
-        <entry key="..\:/Users/slapc/Desktop/audiogram/Audiogram2_0/app/src/main/res/layout/activity_login.xml" value="0.1828125" />
-        <entry key="..\:/Users/slapc/Desktop/audiogram/Audiogram2_0/app/src/main/res/layout/activity_main.xml" value="0.1828125" />
-        <entry key="..\:/Users/slapc/Desktop/audiogram/Audiogram2_0/app/src/main/res/layout/activity_register.xml" value="0.1828125" />
-        <entry key="..\:/Users/slapc/Desktop/audiogram/Audiogram2_0/app/src/main/res/layout/activity_start.xml" value="0.1828125" />
       </map>
     </option>
   </component>

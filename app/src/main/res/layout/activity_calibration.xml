@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_gravity="center_horizontal"
-        android:padding="20dp"
         android:layout_marginTop="20dp"
+        android:padding="20dp"
         android:text="@string/calibration"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -26,93 +26,96 @@
 
     <SeekBar
         android:id="@+id/seekBar"
-        android:layout_width="330dp"
-        android:layout_height="60dp"
-        android:background="@color/teal_200"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="30dp"
-        android:progressDrawable="@drawable/custom_seekbar"
-        android:thumb="@drawable/thumb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="28dp"
         android:layout_marginRight="30dp"
+        android:progress="35"
+        android:progressTint="#44B7E4"
+        android:thumbTint="@color/teal_200"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_calibration"
-        />
+        app:layout_constraintTop_toBottomOf="@id/title_calibration" />
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card1"
         style="@style/CardView2"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
-        tools:ignore="MissingConstraints"
-        app:layout_constraintTop_toBottomOf="@id/seekBar"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="260dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginRight="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/seekBar"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/about_calibration"
             android:padding="15dp"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:textColor="@color/black"
+            android:text="@string/about_calibration"
             android:textAlignment="center"
-            />
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/calibration_buttons_desc"
             android:layout_marginTop="90dp"
-            android:textStyle="bold"
             android:padding="10dp"
-            android:textSize="15sp"
-            android:textColor="@color/black"
+            android:text="@string/calibration_buttons_desc"
             android:textAlignment="center"
-            />
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
 
     </androidx.cardview.widget.CardView>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/startButton"
-        android:layout_width="125dp"
-        android:layout_height="52dp"
-        android:layout_marginHorizontal="50dp"
+        android:id="@+id/stopButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:background="@drawable/btn_shape"
         android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:onClick="onCalibrationClick"
-        android:paddingVertical="15dp"
-        android:layout_marginTop="70dp"
-        android:text="@string/start_calibration"
+        android:onClick="onStopClick"
+        android:text="@string/stop_calibration"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:layout_marginRight="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card1"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/startButton"
+        app:layout_constraintTop_toBottomOf="@+id/calibrationButton1"
+        tools:ignore="MissingConstraints"
+
 
         />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/stopButton"
-        android:layout_width="127dp"
-        android:layout_height="52dp"
-        android:layout_marginHorizontal="50dp"
+        android:id="@+id/startButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:background="@drawable/btn_shape"
         android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:onClick="onStopClick"
-        android:paddingVertical="15dp"
-        android:text="@string/stop_calibration"
+        android:onClick="onCalibrationClick"
+        android:text="@string/start_calibration"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card1"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginLeft="30dp"
+        app:layout_constraintEnd_toStartOf="@+id/stopButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calibrationButton1"
+        tools:ignore="MissingConstraints"
+        />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/calibrationButton1"
@@ -132,6 +135,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/card1"
         app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.030349014" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
