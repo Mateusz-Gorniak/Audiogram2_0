@@ -39,10 +39,8 @@ public class CalibrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calibration);
-
-        myReceiver = new MusicIntentReceiver();
         audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
-
+        myReceiver = new MusicIntentReceiver();
         buttonStart = (Button) findViewById(R.id.startButton);
         buttonStop = (Button) findViewById(R.id.stopButton);
         buttonCalibration = (Button) findViewById(R.id.calibrationButton1);
@@ -50,9 +48,6 @@ public class CalibrationActivity extends AppCompatActivity {
         buttonCalibration.setEnabled(false);
 
         builder = new AlertDialog.Builder(this);
-
-
-
 
 
         buttonCalibration.setOnClickListener(new View.OnClickListener() {
@@ -109,8 +104,10 @@ public class CalibrationActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.percentText);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
-       // seekBar.setMax(maxVolume);
-        //seekBar.setProgress(currentVolume);
+//        seekBar.setProgress(maxVolume);
+//        progressBar.setProgress(maxVolume);
+        progressBar.setProgress(currentVolume);
+        seekBar.setProgress(currentVolume);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -134,12 +131,6 @@ public class CalibrationActivity extends AppCompatActivity {
         registerReceiver(myReceiver, filter);
         super.onResume();
     }
-    @Override
-    public void onPause() {
-        unregisterReceiver(myReceiver);
-        super.onPause();
-    }
-
     private class MusicIntentReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -152,6 +143,7 @@ public class CalibrationActivity extends AppCompatActivity {
                         buttonCalibration.setEnabled(false);
                         buttonStart.setEnabled(false);
                         buttonStop.setEnabled(false);
+
                         break;
                     case 1:
                         Log.d(TAG, "Headset is plugged");
@@ -165,6 +157,11 @@ public class CalibrationActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+    @Override
+    public void onPause() {
+        unregisterReceiver(myReceiver);
+        super.onPause();
     }
 
 }
