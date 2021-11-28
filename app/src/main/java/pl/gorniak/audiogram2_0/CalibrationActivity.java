@@ -11,11 +11,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.w3c.dom.Text;
 
 public class CalibrationActivity extends AppCompatActivity {
 
@@ -29,6 +33,7 @@ public class CalibrationActivity extends AppCompatActivity {
     Button buttonStart;
     Button buttonStop;
     AlertDialog.Builder builder;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,11 @@ public class CalibrationActivity extends AppCompatActivity {
         buttonCalibration.setEnabled(false);
 
         builder = new AlertDialog.Builder(this);
+
+
+
+
+
         buttonCalibration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,16 +102,22 @@ public class CalibrationActivity extends AppCompatActivity {
                 mp.start();
             }
         });
-
+        TextView textView;
+        ProgressBar progressBar;
         int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
         int currentVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+        textView = (TextView) findViewById(R.id.percentText);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
         SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
-        seekBar.setMax(maxVolume);
-        seekBar.setProgress(currentVolume);
+       // seekBar.setMax(maxVolume);
+        //seekBar.setProgress(currentVolume);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0);
+                progressBar.setProgress(progress);
+                textView.setText("" + progress + "%");
+
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
