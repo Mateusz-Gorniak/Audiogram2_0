@@ -1,5 +1,8 @@
 package pl.gorniak.audiogram2_0;
 
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothHeadset;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -128,22 +131,40 @@ public class CalibrationActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         IntentFilter filter = new IntentFilter(Intent.ACTION_HEADSET_PLUG);
+//        filter.addAction(BluetoothDevice.ACTION_ACL_CONNECTED);
+//        filter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED);
         registerReceiver(myReceiver, filter);
         super.onResume();
     }
+
+    public static boolean isBluetoothHeadsetConnected() {
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        return mBluetoothAdapter != null && mBluetoothAdapter.isEnabled()
+                && mBluetoothAdapter.getProfileConnectionState(BluetoothHeadset.HEADSET) == BluetoothHeadset.STATE_CONNECTED;
+    }
+
     private class MusicIntentReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
+            boolean device = isBluetoothHeadsetConnected();
             if (intent.getAction().equals(Intent.ACTION_HEADSET_PLUG)) {
                 int state = intent.getIntExtra("state", -1);
                 switch (state) {
                     case 0:
-                        Log.d(TAG, "Headset is unplugged");
-                        Toast.makeText(CalibrationActivity.this, "Unplugged", Toast.LENGTH_SHORT).show();
-                        buttonCalibration.setEnabled(false);
-                        buttonStart.setEnabled(false);
-                        buttonStop.setEnabled(false);
-
+                        if(!device) {
+                            Log.d(TAG, "Headset is unplugged");
+                            Toast.makeText(CalibrationActivity.this, "Please plug in the headphones", Toast.LENGTH_SHORT).show();
+                            buttonCalibration.setEnabled(false);
+                            buttonStart.setEnabled(false);
+                            buttonStop.setEnabled(false);
+                        }else{
+                            Log.d(TAG, "bluetooth Headset is plugged");
+                            Toast.makeText(CalibrationActivity.this, "Plugged", Toast.LENGTH_SHORT).show();
+                            buttonCalibration.setEnabled(true);
+                            buttonStart.setEnabled(true);
+                            buttonStop.setEnabled(true);
+                            break;
+                        }
                         break;
                     case 1:
                         Log.d(TAG, "Headset is plugged");
