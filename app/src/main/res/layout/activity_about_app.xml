@@ -24,7 +24,7 @@
 
         <TextView
             android:id="@+id/book_master_text"
-            android:layout_width="400dp"
+            android:layout_width="406dp"
             android:layout_height="415dp"
             android:layout_gravity="center_horizontal"
             android:padding="20dp"
