@@ -24,6 +24,15 @@
         <entry key="..\:/Audiogram2_0/app/src/main/res/layout/activity_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Audiogram2_0/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
         <entry key="..\:/Audiogram2_0/app/src/main/res/layout/activity_start.xml" value="0.25416666666666665" />
+        <entry key="..\:/AudiogramBeta/Audiogram2_0/app/src/main/res/layout/activity_about_graph.xml" value="0.20677083333333332" />
+        <entry key="..\:/AudiogramBeta/Audiogram2_0/app/src/main/res/layout/activity_calibration.xml" value="0.25226449275362317" />
+        <entry key="..\:/AudiogramBeta/Audiogram2_0/app/src/main/res/layout/activity_examination.xml" value="0.25226449275362317" />
+        <entry key="..\:/AudiogramBeta/Audiogram2_0/app/src/main/res/layout/activity_examination2.xml" value="0.20677083333333332" />
+        <entry key="..\:/AudiogramBeta/Audiogram2_0/app/src/main/res/layout/activity_login.xml" value="0.25226449275362317" />
+        <entry key="..\:/AudiogramBeta/Audiogram2_0/app/src/main/res/layout/activity_main.xml" value="0.20677083333333332" />
+        <entry key="..\:/AudiogramBeta/Audiogram2_0/app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="..\:/AudiogramBeta/Audiogram2_0/app/src/main/res/layout/activity_register.xml" value="0.25226449275362317" />
+        <entry key="..\:/AudiogramBeta/Audiogram2_0/app/src/main/res/layout/activity_start.xml" value="0.25226449275362317" />
         <entry key="..\:/Projects/Audiogram2_0/app/src/main/res/layout/activity_login.xml" value="0.23854166666666668" />
         <entry key="..\:/Projects/Audiogram2_0/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Projects/Audiogram2_0/app/src/main/res/layout/activity_register.xml" value="0.264" />
@@ -56,7 +65,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

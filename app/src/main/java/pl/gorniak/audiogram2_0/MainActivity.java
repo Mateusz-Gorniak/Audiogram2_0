@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private MenuBuilder menuBuilder;
     private Button calibrateButton;
     private Button profileButton;
+    private  Button startButton;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -34,7 +35,14 @@ public class MainActivity extends AppCompatActivity {
         menu_show = (ImageView) findViewById(R.id.show_menu);
         calibrateButton = (Button)findViewById(R.id.calibrationButton);
         profileButton = (Button) findViewById(R.id.profileButton);
+        startButton = (Button)findViewById(R.id.startButton);
 
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,ExaminationActivity.class));
+            }
+        });
 
         calibrateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                             return true;
                         }
                         if (item.getItemId() == R.id.nav_audiogram_graph){
-                            startActivity(new Intent(MainActivity.this,AboutAppActivity.class));
+                            startActivity(new Intent(MainActivity.this,AboutGraphActivity.class));
                             return true;
                         }
                         return false;
