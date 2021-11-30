@@ -13,7 +13,7 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        username = (TextView) findViewById(R.id.username);
-        username.setText("Test");
+      //  username = (TextView) findViewById(R.id.username);
+       // username.setText("Test");
     }
 }

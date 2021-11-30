@@ -19,16 +19,16 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/volume"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.48"
-        tools:layout_editor_absoluteX="181dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.742"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="181dp" />
 
     <TextView
         android:id="@+id/frequency2"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginEnd="72dp"
+        android:layout_marginEnd="68dp"
         android:text="[Hz]"
         android:textAlignment="gravity"
         android:textColor="@color/white"
@@ -37,7 +37,7 @@
         app:layout_constraintBottom_toTopOf="@+id/hearSound"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.496" />
+        app:layout_constraintVertical_bias="0.597" />
 
     <TextView
         android:id="@+id/volume"
@@ -53,6 +53,7 @@
         app:layout_constraintEnd_toStartOf="@+id/frequency2"
         app:layout_constraintStart_toEndOf="@+id/frequency_text"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.597"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -69,6 +70,7 @@
         app:layout_constraintBottom_toTopOf="@+id/hearSound"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.597"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -83,8 +85,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/frequency2"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.742"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="292dp" />
+        tools:layout_editor_absoluteX="299dp" />
 
     <TextView
         android:id="@+id/volume_text"
@@ -99,8 +102,10 @@
         app:layout_constraintBottom_toTopOf="@+id/frequency_text"
 
         app:layout_constraintEnd_toStartOf="@+id/frequency"
+        app:layout_constraintHorizontal_bias="0.387"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.788" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/hearSound"
