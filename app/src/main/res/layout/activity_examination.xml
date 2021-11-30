@@ -9,26 +9,27 @@
 
     <TextView
         android:id="@+id/frequency"
-        android:layout_width="75dp"
+        android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="60dp"
         android:text="value_"
         android:textAlignment="gravity"
         android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/volume"
+        app:layout_constraintEnd_toStartOf="@+id/frequency3"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.742"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="181dp" />
+        app:layout_constraintVertical_bias="0.824"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/frequency2"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginEnd="68dp"
+        android:layout_marginEnd="64dp"
         android:text="[Hz]"
         android:textAlignment="gravity"
         android:textColor="@color/white"
@@ -37,7 +38,7 @@
         app:layout_constraintBottom_toTopOf="@+id/hearSound"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.597" />
+        app:layout_constraintVertical_bias="0.804" />
 
     <TextView
         android:id="@+id/volume"
@@ -51,9 +52,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/hearSound"
         app:layout_constraintEnd_toStartOf="@+id/frequency2"
+        app:layout_constraintHorizontal_bias="0.418"
         app:layout_constraintStart_toEndOf="@+id/frequency_text"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.597"
+        app:layout_constraintVertical_bias="0.804"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -61,8 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="32dp"
         android:text="Frequency"
         android:textAlignment="gravity"
         android:textColor="@color/white"
@@ -71,7 +72,7 @@
         app:layout_constraintBottom_toTopOf="@+id/hearSound"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.597"
+        app:layout_constraintVertical_bias="0.804"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -79,20 +80,21 @@
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="64dp"
         android:text="[dB]"
         android:textAlignment="gravity"
         android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/frequency2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.742"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="299dp" />
+        app:layout_constraintVertical_bias="0.824"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/volume_text"
-        android:layout_width="119dp"
+        android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:layout_gravity="center_horizontal"
         android:text="Volume"
@@ -100,29 +102,27 @@
         android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="24dp"
         app:layout_constraintBottom_toTopOf="@+id/frequency_text"
 
         app:layout_constraintEnd_toStartOf="@+id/frequency"
-        app:layout_constraintHorizontal_bias="0.387"
+        app:layout_constraintHorizontal_bias="0.372"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.753" />
+        app:layout_constraintVertical_bias="0.8" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/hearSound"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="204dp"
+        android:layout_marginTop="200dp"
         android:background="@drawable/btn_shape"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:onClick="showAlertDialogButtonClicked"
+        android:padding="20dp"
         android:paddingVertical="15dp"
         android:text="WYNIK BADANIA"
         android:textStyle="bold"
-        android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
