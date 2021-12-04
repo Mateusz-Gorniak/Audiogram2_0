@@ -17,5 +17,6 @@ public class AboutAppActivity extends AppCompatActivity {
     public void backToMainPage(View view) {
         Intent backToMainPage = new Intent(this, MainActivity.class);
         startActivity(backToMainPage);
+        finish();
     }
 }
