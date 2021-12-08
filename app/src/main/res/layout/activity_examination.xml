@@ -7,108 +7,88 @@
     android:background="@drawable/background_gradient1">
 
 
-    <TextView
-        android:id="@+id/frequency"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginEnd="60dp"
-        android:text="value_"
-        android:textAlignment="gravity"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/volume"
-        app:layout_constraintEnd_toStartOf="@+id/frequency3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.824"
-        tools:ignore="MissingConstraints" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card1"
+        style="@style/CardView3"
+        android:layout_width="400dp"
+        android:layout_height="210dp"
+        tools:ignore="MissingConstraints">
 
-    <TextView
-        android:id="@+id/frequency2"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginEnd="64dp"
-        android:text="[Hz]"
-        android:textAlignment="gravity"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/hearSound"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.804" />
 
-    <TextView
-        android:id="@+id/volume"
-        android:layout_width="75dp"
-        android:layout_height="35dp"
-        android:layout_gravity="center_horizontal"
-        android:text="value_"
-        android:textAlignment="gravity"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/hearSound"
-        app:layout_constraintEnd_toStartOf="@+id/frequency2"
-        app:layout_constraintHorizontal_bias="0.418"
-        app:layout_constraintStart_toEndOf="@+id/frequency_text"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.804"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/volume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Volume"
+            android:layout_marginTop="15dp"
+            android:textAlignment="gravity"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/frequency_text"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="32dp"
-        android:text="Frequency"
-        android:textAlignment="gravity"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/hearSound"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.804"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/volume_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="15dp"
+            android:text="value"
+            android:textAlignment="gravity"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/frequency3"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginEnd="64dp"
-        android:text="[dB]"
-        android:textAlignment="gravity"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/frequency2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.824"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:text="[dB]"
+            android:layout_marginTop="15dp"
+            android:textAlignment="gravity"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/volume_text"
-        android:layout_width="wrap_content"
-        android:layout_height="32dp"
-        android:layout_gravity="center_horizontal"
-        android:text="Volume"
-        android:textAlignment="gravity"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/frequency_text"
+        <TextView
+            android:id="@+id/frequency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="70dp"
+            android:text="Frequency"
+            android:textAlignment="gravity"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            />
 
-        app:layout_constraintEnd_toStartOf="@+id/frequency"
-        app:layout_constraintHorizontal_bias="0.372"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
+        <TextView
+            android:id="@+id/frequency_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="70dp"
+            android:text="value"
+            android:textAlignment="gravity"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:text="[Hz]"
+            android:layout_marginTop="70dp"
+            android:textAlignment="gravity"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/hearSound"
@@ -127,7 +107,9 @@
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:visibility="invisible"
+        />
 
     <RadioGroup
         android:layout_width="386dp"
@@ -210,7 +192,6 @@
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:onClick="onAnswerNo"
         android:text="Nie"
-
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

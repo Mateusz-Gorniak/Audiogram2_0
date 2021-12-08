@@ -97,7 +97,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
-
+    //method
     public void updateUI(FirebaseUser currentUser) {
         String keyid = auth.getUid();
         myRef.child(keyid).setValue(user); //adding user info to database
