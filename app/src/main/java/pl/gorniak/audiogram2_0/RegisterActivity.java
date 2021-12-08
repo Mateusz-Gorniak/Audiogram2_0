@@ -97,7 +97,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void updateUI(FirebaseUser currentUser) {
-        String keyid = myRef.push().getKey();
+        String keyid = auth.getUid();
         myRef.child(keyid).setValue(user); //adding user info to database
         Intent intent = new Intent(this, StartActivity.class);
         startActivity(intent);
