@@ -68,6 +68,8 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Empty credentalis", Toast.LENGTH_SHORT).show();
                 }else if (txt_password.length() < 6){
                     Toast.makeText(RegisterActivity.this, "Password is too short", Toast.LENGTH_SHORT).show();
+                }else if (txt_fullname.length() == 0){
+                    Toast.makeText(RegisterActivity.this, "Full Name is required!", Toast.LENGTH_SHORT).show();
                 }else{
                     user = new User(txt_fullname,txt_phoneNumber,txt_location,txt_email);
                     registerUser(txt_email,txt_password);
