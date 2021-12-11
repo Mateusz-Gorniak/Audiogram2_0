@@ -32,8 +32,8 @@ public class ExaminationActivity extends AppCompatActivity {
     private final double samples[] = new double[numSamples];
     final byte generatedSnd[] = new byte[2 * numSamples];
     int leftEarFlag = 1, rightEarFlag=0;
-    int[] leftEar = new int[9];
-    int[] rightEar = new int[9];
+    int[] leftEar = new int[10];
+    int[] rightEar = new int[10];
     int i = 0;//index i frequency
     int j = 0;//index j volume
 
@@ -45,7 +45,7 @@ public class ExaminationActivity extends AppCompatActivity {
     private RadioButton rightRbutton;
     private RadioButton leftRbutton;
     private Button resultButton;
-
+     Intent result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,6 +123,9 @@ public class ExaminationActivity extends AppCompatActivity {
                         playButton.setEnabled(false);
                         resultButton.setEnabled(true);
                         resultButton.setVisibility(View.VISIBLE);
+                        result = new Intent(getBaseContext(), GraphActivity.class);
+                        result.putExtra("leftEar", leftEar);
+                        result.putExtra("rightEar", rightEar);
                     }
                     Toast.makeText(ExaminationActivity.this, "Max frequency", Toast.LENGTH_SHORT).show();
                     Toast.makeText(ExaminationActivity.this,"Ear swap", Toast.LENGTH_SHORT).show();
@@ -232,9 +235,9 @@ public class ExaminationActivity extends AppCompatActivity {
         builder.setPositiveButton("Wykres Audiogram", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                //Intent intent = new Intent(ExaminationActivity.this, ResultActivity.class);
-                //startActivity(intent);
-                //finish();
+                Intent intent = new Intent(ExaminationActivity.this, GraphActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
         // create and show the alert dialog
