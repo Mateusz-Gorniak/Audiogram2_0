@@ -21,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Audiogram2_0">
         <activity
+            android:name=".SoundGenerationTest"
+            android:exported="false" />
+        <activity
             android:name=".ResultActivity"
             android:exported="false" />
         <activity

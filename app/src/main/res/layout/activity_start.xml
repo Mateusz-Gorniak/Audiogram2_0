@@ -72,6 +72,23 @@
         app:layout_constraintTop_toBottomOf="@+id/LoginButton"
         app:layout_constraintVertical_bias="0.234" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/test123"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:onClick="onClickTestButton"
+        android:padding="15dp"
+        android:text="TEST"
+        android:background="@drawable/btn_shape"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RegisterButton"
+        app:layout_constraintVertical_bias="0.234" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

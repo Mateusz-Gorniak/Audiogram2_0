@@ -107,9 +107,10 @@
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        android:visibility="invisible"
-        />
+        tools:ignore="MissingConstraints"/>
+<!--        android:visibility="invisible"-->
+
+
 
     <RadioGroup
         android:layout_width="386dp"
@@ -166,14 +167,13 @@
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/yes"
+        android:id="@+id/yesButton"
         android:layout_width="120dp"
         android:layout_height="60dp"
         android:layout_marginHorizontal="50dp"
         android:layout_marginBottom="144dp"
         android:background="@drawable/btn_shape"
         android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:onClick="onAnswerYes"
         android:paddingVertical="15dp"
         android:text="Tak"
         android:textStyle="bold"
@@ -184,13 +184,12 @@
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/no"
+        android:id="@+id/noButton"
         android:layout_width="120dp"
         android:layout_height="60dp"
         android:layout_marginBottom="144dp"
         android:background="@drawable/btn_shape"
         android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:onClick="onAnswerNo"
         android:text="Nie"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -200,14 +199,13 @@
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/play"
+        android:id="@+id/playButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:layout_marginBottom="44dp"
         android:background="@drawable/btn_shape"
         android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:onClick="onPlay"
         android:paddingVertical="15dp"
         android:text="Odtwórz"
         android:textStyle="bold"

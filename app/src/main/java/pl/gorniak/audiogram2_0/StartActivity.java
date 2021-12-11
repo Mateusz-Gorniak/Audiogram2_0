@@ -31,4 +31,9 @@ public class StartActivity extends AppCompatActivity {
         Intent intent = new Intent(StartActivity.this, LoginActivity.class);
         startActivity(intent);
     }
+
+    public void onClickTestButton(View view) {
+        Intent intent = new Intent(StartActivity.this, SoundGenerationTest.class);
+        startActivity(intent);
+    }
 }

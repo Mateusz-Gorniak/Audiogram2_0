@@ -160,7 +160,7 @@ public class CalibrationActivity extends AppCompatActivity {
                         }else{
                             Log.d(TAG, "bluetooth Headset is plugged");
                             Toast.makeText(CalibrationActivity.this, "Plugged", Toast.LENGTH_SHORT).show();
-                            buttonCalibration.setEnabled(true);
+                            buttonCalibration.setEnabled(false);
                             buttonStart.setEnabled(true);
                             buttonStop.setEnabled(true);
                             break;
