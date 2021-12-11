@@ -27,8 +27,8 @@ import org.w3c.dom.Text;
 public class CalibrationActivity extends AppCompatActivity {
 
     AudioManager audioManager;
-    float leftVolume = 0.03f;  //wspołczynnik skali
-    float rightVolume = 0.03f; //wspołczynnik skali
+    float leftVolume = 0.04f;  //wspołczynnik skali
+    float rightVolume = 0.04f; //wspołczynnik skali
     private static final String TAG = "CalibrationActivity";
     private MusicIntentReceiver myReceiver;
     MediaPlayer mp;
@@ -143,6 +143,9 @@ public class CalibrationActivity extends AppCompatActivity {
                 && mBluetoothAdapter.getProfileConnectionState(BluetoothHeadset.HEADSET) == BluetoothHeadset.STATE_CONNECTED;
     }
 
+    public void calibrationHearSound(View view) {
+    }
+
     private class MusicIntentReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -183,6 +186,7 @@ public class CalibrationActivity extends AppCompatActivity {
     public void onPause() {
         unregisterReceiver(myReceiver);
         super.onPause();
+        finish();
     }
 
 }

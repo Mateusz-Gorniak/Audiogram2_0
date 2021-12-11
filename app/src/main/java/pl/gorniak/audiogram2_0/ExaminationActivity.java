@@ -16,26 +16,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ExaminationActivity extends AppCompatActivity {
 
     AudioManager audioManager;
     final Integer[] frequencies = { 125, 250, 500, 1000, 1500, 2000, 3000, 4000, 6000, 10000};
-    final Double decibelsArray[] = {1.0/*0dB*/, 3.16227766/*10dB*/, 10.0/*20dB*/, 31.6227766/*30dB*/, 100.0/*40dB*/, 316.227766/*50dB*/,
+    final Double [] volumes = {1.0/*0dB*/, 3.16227766/*10dB*/, 10.0/*20dB*/, 31.6227766/*30dB*/, 100.0/*40dB*/, 316.227766/*50dB*/,
             1000.0/*60dB*/, 3162.27766/*70dB*/, 10000.0/*80dB*/, 31622.7766/*90dB*/};
     final Integer dbArray[] = {0, 10, 20, 30, 40, 50, 60, 70, 80, 90};
-
+    float scale_factor = 0.02f;
     final int duration = 1; //tone duration in seconds
     final int sampleRate = 44100;// sample rate, 441000 times per seconds
     final int numSamples = duration * sampleRate;
     private final double samples[] = new double[numSamples];
     final byte generatedSnd[] = new byte[2 * numSamples];
-
+    int leftEarFlag = 1, rightEarFlag=0;
     int[] leftEar = new int[9];
     int[] rightEar = new int[9];
-    float scale_factor = 0.03f;
-    int i = 0;//index i
-    int j = 0;//index j
+    int i = 0;//index i frequency
+    int j = 0;//index j volume
 
     private TextView volumeTextView;
     private TextView frequencyTextView;
@@ -46,7 +46,6 @@ public class ExaminationActivity extends AppCompatActivity {
     private RadioButton leftRbutton;
     private Button resultButton;
 
-    Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +64,8 @@ public class ExaminationActivity extends AppCompatActivity {
         leftRbutton.setChecked(true);
         rightRbutton.setChecked(false);
         rightRbutton.setEnabled(false);
+        yesButton.setEnabled(false);
+        noButton.setEnabled(false);
         audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
 
 
@@ -88,25 +89,92 @@ public class ExaminationActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
         updateText();
+
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                yesButton.setEnabled(false);
+                noButton.setEnabled(false);
+                genTone(frequencies[i], volumes[j]);
+                playSound();
+                yesButton.setEnabled(true);
+                noButton.setEnabled(true);
+                //playButton.setEnabled(true);
+            }
+        });
+
+
+
         yesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if(leftEarFlag  == 1){
+                    leftEar[i] = dbArray[j];
+                }
+                if(rightEarFlag == 1){
+                    rightEar[i] = dbArray[j];
+                }
+                i++;
+                j=0;
+                if(frequencies[i] >= 10000 ){
+                    if(leftEarFlag == 0){
+                        noButton.setEnabled(false);
+                        yesButton.setEnabled(false);
+                        playButton.setEnabled(false);
+                        resultButton.setEnabled(true);
+                        resultButton.setVisibility(View.VISIBLE);
+                    }
+                    Toast.makeText(ExaminationActivity.this, "Max frequency", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ExaminationActivity.this,"Ear swap", Toast.LENGTH_SHORT).show();
+                    leftRbutton.setChecked(false);
+                    leftRbutton.setEnabled(false);
+                    rightRbutton.setEnabled(true);
+                    rightRbutton.setChecked(true);
+                    i=0;
+                    j=0;
+                    leftEarFlag=0;
+                    rightEarFlag=1;
+                }
+                updateText();
             }
         });
 
         noButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            }
-        });
+                j++;
+                if(frequencies[i] > 6000 ){
+                    if(leftEarFlag == 0) {
+                        noButton.setEnabled(false);
+                        yesButton.setEnabled(false);
+                        playButton.setEnabled(false);
+                        resultButton.setEnabled(true);
+                        resultButton.setVisibility(View.VISIBLE);
+                    }
+                    if(rightEarFlag == 0){
+                        Toast.makeText(ExaminationActivity.this,"Ear swap", Toast.LENGTH_SHORT).show();
+                        leftRbutton.setChecked(false);
+                        leftRbutton.setEnabled(false);
+                        rightRbutton.setEnabled(true);
+                        rightRbutton.setChecked(true);
+                        i=0; j=0;
+                        leftEarFlag=0;
+                        rightEarFlag=1;
+                    }
+                }
+                if(dbArray[j] >= 90){
+                    if(leftEarFlag  == 1){
+                        leftEar[i] = 90;
+                    }
+                    if(rightEarFlag == 1){
+                        rightEar[i] = 90;
+                    }
 
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                genTone(500);
-                playSound();
-                //playButton.setEnabled(true);
+                    i++;
+                    Toast.makeText(ExaminationActivity.this,"Max volume", Toast.LENGTH_SHORT).show();
+                    j=0;
+                }
+                updateText();
             }
         });
 
@@ -116,23 +184,22 @@ public class ExaminationActivity extends AppCompatActivity {
         frequencyTextView.setText(String.valueOf(frequencies[i]));
         volumeTextView.setText(String.valueOf(dbArray[j]));
     }
-    void genTone(int freqOfTone) {
+    void genTone(int freqOfTone, double volume) {
         // fill out the array
         for (int i = 0; i < numSamples; ++i) {
-            samples[i] = Math.sin(2 * Math.PI * i / (sampleRate / freqOfTone));
+            samples[i] =  (Math.sin(2 * Math.PI * i / (sampleRate / freqOfTone)));
         }
 
-        // convert to 16 bit pcm sound array
-        // assumes the sample buffer is normalised.
         int idx = 0;
         for (final double dVal : samples) {
             // scale to maximum amplitude
-            final short val = (short) ((dVal * 10));
+            final short val = (short) ((dVal * volume));
             // in 16 bit wav PCM, first byte is the low order byte
             generatedSnd[idx++] = (byte) (val & 0x00ff);
             generatedSnd[idx++] = (byte) ((val & 0xff00) >>> 8);
 
         }
+
     }
     void playSound(){
         final AudioTrack audioTrack = new AudioTrack(AudioManager.STREAM_MUSIC,
@@ -140,6 +207,7 @@ public class ExaminationActivity extends AppCompatActivity {
                 AudioFormat.ENCODING_PCM_16BIT, generatedSnd.length,
                 AudioTrack.MODE_STATIC);
         audioTrack.write(generatedSnd, 0, generatedSnd.length);
+        audioTrack.setStereoVolume(leftEarFlag,rightEarFlag);
         audioTrack.play();
     }
     public void showAlertDialogButtonClicked(View view) {
@@ -149,7 +217,6 @@ public class ExaminationActivity extends AppCompatActivity {
         int hearLoss = 0;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Wynik badania");
-        builder.setMessage("Twój ubytek słuchu wynosi: " + hearLoss + "dB");
 
         hearLossLeft = (leftEar[3]+leftEar[4]+leftEar[6])/3;
         hearLossRight = (rightEar[3]+rightEar[4]+rightEar[6])/3;
@@ -160,6 +227,7 @@ public class ExaminationActivity extends AppCompatActivity {
         else{
             hearLoss = hearLossLeft;
         }
+        builder.setMessage("Twój ubytek słuchu wynosi: " + hearLoss + "dB");
         // add a button
         builder.setPositiveButton("Wykres Audiogram", new DialogInterface.OnClickListener() {
             @Override

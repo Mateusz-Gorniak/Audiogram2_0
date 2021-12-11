@@ -144,6 +144,7 @@
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:paddingVertical="15dp"
         android:text="@string/hear_sound"
+        android:onClick="calibrationHearSound"
         android:padding="18dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
