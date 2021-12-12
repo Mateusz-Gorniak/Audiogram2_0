@@ -6,16 +6,27 @@ public class User {
     private String phoneNumber;
     private String location;
     private String email;
+    private String lastExamination;
+
+    public String getLastExamination() {
+        return lastExamination;
+    }
+
+    public void setLastExamination(String lastExamination) {
+        this.lastExamination = lastExamination;
+    }
+
 
     public User(){
 
     }
 
-    public User(String fullname, String phoneNumber, String location, String email) {
+    public User(String fullname, String phoneNumber, String location, String email, String lastExamination) {
         this.fullname = fullname;
         this.phoneNumber = phoneNumber;
         this.location = location;
         this.email = email;
+        this.lastExamination = "Brak badań";
     }
 
     public String getFullname() {

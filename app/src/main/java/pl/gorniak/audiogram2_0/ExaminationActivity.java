@@ -12,13 +12,32 @@ import android.media.AudioTrack;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class ExaminationActivity extends AppCompatActivity {
+
+    private final static String USER = "users";
+    FirebaseDatabase database;
+    DatabaseReference myRef;
+    FirebaseAuth auth;
+    LocalDateTime myDateObj = LocalDateTime.now();
+    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
     AudioManager audioManager;
     final Integer[] frequencies = { 125, 250, 500, 1000, 1500, 2000, 3000, 4000, 6000, 10000};
@@ -36,7 +55,7 @@ public class ExaminationActivity extends AppCompatActivity {
     int[] rightEar = new int[10];
     int i = 0;//index i frequency
     int j = 0;//index j volume
-
+    private String keyid;
     private TextView volumeTextView;
     private TextView frequencyTextView;
     private Button yesButton;
@@ -67,6 +86,11 @@ public class ExaminationActivity extends AppCompatActivity {
         yesButton.setEnabled(false);
         noButton.setEnabled(false);
         audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
+
+        auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference(USER);
+        keyid = auth.getUid();
 
 
 
@@ -108,6 +132,7 @@ public class ExaminationActivity extends AppCompatActivity {
         yesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if(leftEarFlag  == 1){
                     leftEar[i] = dbArray[j];
                 }
@@ -123,9 +148,7 @@ public class ExaminationActivity extends AppCompatActivity {
                         playButton.setEnabled(false);
                         resultButton.setEnabled(true);
                         resultButton.setVisibility(View.VISIBLE);
-                        result = new Intent(getBaseContext(), GraphActivity.class);
-                        result.putExtra("leftEar", leftEar);
-                        result.putExtra("rightEar", rightEar);
+
                     }
                     Toast.makeText(ExaminationActivity.this, "Max frequency", Toast.LENGTH_SHORT).show();
                     Toast.makeText(ExaminationActivity.this,"Ear swap", Toast.LENGTH_SHORT).show();
@@ -224,12 +247,26 @@ public class ExaminationActivity extends AppCompatActivity {
         hearLossLeft = (leftEar[3]+leftEar[4]+leftEar[6])/3;
         hearLossRight = (rightEar[3]+rightEar[4]+rightEar[6])/3;
 
+        result = new Intent(getBaseContext(), GraphActivity.class);
+        result.putExtra("leftEar", leftEar);
+        result.putExtra("rightEar", rightEar);
+
         if (hearLossLeft>hearLossRight){
             hearLoss = hearLossRight;
         }
         else{
             hearLoss = hearLossLeft;
         }
+
+        myRef.child(keyid).child("lastExamination").setValue(2);
+        String formattedDate = myDateObj.format(myFormatObj);
+        Log.d("TAAG",keyid);
+        Log.d("TAAG",formattedDate);
+        myRef.child(keyid).child("lastExamination").setValue("Ubytek:" +hearLoss + "dB \nWykonano:" + formattedDate);
+        //Log.d("TAG",leftEar[0] + " " +leftEar[1] + " " +leftEar[2] + " " + leftEar[3] + " " +leftEar[4] + " "  +leftEar[5] + " ");
+        //Log.d("TAG",rightEar[0] + " " +rightEar[1] + " " +rightEar[2] + " " + rightEar[3] + " " +rightEar[4] + " "  +rightEar[5] + " ");
+
+
         builder.setMessage("Twój ubytek słuchu wynosi: " + hearLoss + "dB");
         // add a button
         builder.setPositiveButton("Wykres Audiogram", new DialogInterface.OnClickListener() {

@@ -30,10 +30,11 @@ public class GraphActivity extends AppCompatActivity {
         ArrayList<Entry> yValues1 = new ArrayList<>();
         ArrayList<Entry> yValues2 = new ArrayList<>();
         Bundle extras = getIntent().getExtras();
-        //int[] leftEar = extras.getIntArray("leftEar");
-       // int[] rightEar = extras.getIntArray("rightEar");
+
+        int[] leftEar = extras.getIntArray("leftEar");
+        int[] rightEar = extras.getIntArray("rightEar");
         //ucho lewe
-        /*yValues1.add(new Entry(125, leftEar[0]));
+        yValues1.add(new Entry(125, leftEar[0]));
         yValues1.add(new Entry(250, leftEar[1]));
         yValues1.add(new Entry(500, leftEar[2]));
         yValues1.add(new Entry(1000, leftEar[3]));
@@ -51,26 +52,8 @@ public class GraphActivity extends AppCompatActivity {
         yValues2.add(new Entry(2000, rightEar[5]));
         yValues2.add(new Entry(3000, rightEar[6]));
         yValues2.add(new Entry(4000, rightEar[7]));
-        yValues2.add(new Entry(6000, rightEar[8]));*/
-        yValues1.add(new Entry(125, 1));
-        yValues1.add(new Entry(250, 2));
-        yValues1.add(new Entry(500, 2));
-        yValues1.add(new Entry(1000, 2));
-        yValues1.add(new Entry(1500, 2));
-        yValues1.add(new Entry(2000, 6));
-        yValues1.add(new Entry(3000, 7));
-        yValues1.add(new Entry(4000, 9));
-        yValues1.add(new Entry(6000, 6));
-        //ucho prawe
-        yValues2.add(new Entry(125, 1));
-        yValues2.add(new Entry(250, 1));
-        yValues2.add(new Entry(500, 1));
-        yValues2.add(new Entry(1000, 1));
-        yValues2.add(new Entry(1500, 1));
-        yValues2.add(new Entry(2000, 1));
-        yValues2.add(new Entry(3000, 1));
-        yValues2.add(new Entry(4000, 1));
-        yValues2.add(new Entry(6000, 1));
+        yValues2.add(new Entry(6000, rightEar[8]));
+
         LineDataSet set1 = new LineDataSet(yValues1, "Lewe ucho");
         LineDataSet set2 = new LineDataSet(yValues2, "Prawe ucho");
         set1.setFillAlpha(85);

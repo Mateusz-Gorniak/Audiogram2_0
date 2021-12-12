@@ -63,6 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String txt_fullname = fullname.getText().toString();
                 String txt_location = location.getText().toString();
                 String txt_phoneNumber = phoneNumber.getText().toString();
+                String txt_lastexaminaton = "Brak badań";
 
                 if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)) {
                     Toast.makeText(RegisterActivity.this, "Empty credentalis", Toast.LENGTH_SHORT).show();
@@ -71,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }else if (txt_fullname.length() == 0){
                     Toast.makeText(RegisterActivity.this, "Full Name is required!", Toast.LENGTH_SHORT).show();
                 }else{
-                    user = new User(txt_fullname,txt_phoneNumber,txt_location,txt_email);
+                    user = new User(txt_fullname,txt_phoneNumber,txt_location,txt_email,txt_lastexaminaton);
                     registerUser(txt_email,txt_password);
                 }
             }

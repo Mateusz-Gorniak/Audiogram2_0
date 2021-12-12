@@ -23,6 +23,7 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView emailTxv;
     private TextView fullname;
     private TextView location;
+    private TextView lastexamination;
     private TextView phoneNumber;
     private ImageView imageUser;
     private User user;
@@ -41,6 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
         fullname = findViewById(R.id.name_surname);
         location = findViewById(R.id.locationtext);
         phoneNumber = findViewById(R.id.phoneNumbertext);
+        lastexamination = findViewById(R.id.lastexaminaton);
 
         auth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = auth.getCurrentUser();
@@ -69,10 +71,12 @@ public class ProfileActivity extends AppCompatActivity {
                 String email_txt = snapshot.child("email").getValue().toString();
                 String location_txt = snapshot.child("location").getValue().toString();
                 String phoneNumber_txt = snapshot.child("phoneNumber").getValue().toString();
+                String last_examination_txt = snapshot.child("lastExamination").getValue().toString();
                 emailTxv.setText(email_txt);
                 fullname.setText(fullname_txt);
                 location.setText(location_txt);
                 phoneNumber.setText(phoneNumber_txt);
+                lastexamination.setText(last_examination_txt);
                 // Log.d("USER-DATA",fullname);
             }
 
