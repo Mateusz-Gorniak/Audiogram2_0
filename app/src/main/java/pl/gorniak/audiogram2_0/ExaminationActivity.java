@@ -247,9 +247,6 @@ public class ExaminationActivity extends AppCompatActivity {
         hearLossLeft = (leftEar[3]+leftEar[4]+leftEar[6])/3;
         hearLossRight = (rightEar[3]+rightEar[4]+rightEar[6])/3;
 
-        result = new Intent(getBaseContext(), GraphActivity.class);
-        result.putExtra("leftEar", leftEar);
-        result.putExtra("rightEar", rightEar);
 
         if (hearLossLeft>hearLossRight){
             hearLoss = hearLossRight;
@@ -272,8 +269,10 @@ public class ExaminationActivity extends AppCompatActivity {
         builder.setPositiveButton("Wykres Audiogram", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(ExaminationActivity.this, GraphActivity.class);
-                startActivity(intent);
+                result = new Intent(getBaseContext(), GraphActivity.class);
+                result.putExtra("leftEar", leftEar);
+                result.putExtra("rightEar", rightEar);
+                startActivity(result);
                 finish();
             }
         });
