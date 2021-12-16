@@ -64,7 +64,7 @@ public class ExaminationActivity extends AppCompatActivity {
     private RadioButton rightRbutton;
     private RadioButton leftRbutton;
     private Button resultButton;
-     Intent result;
+    Intent result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,8 +150,8 @@ public class ExaminationActivity extends AppCompatActivity {
                         resultButton.setVisibility(View.VISIBLE);
 
                     }
-                    Toast.makeText(ExaminationActivity.this, "Max frequency", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(ExaminationActivity.this,"Ear swap", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ExaminationActivity.this, "Maksymalna wartość częstotliwości", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ExaminationActivity.this,"Teraz nastąpi zmiana kanału emisji dźwięku, tak aby zbadać ucho prawe", Toast.LENGTH_SHORT).show();
                     leftRbutton.setChecked(false);
                     leftRbutton.setEnabled(false);
                     rightRbutton.setEnabled(true);
@@ -178,7 +178,7 @@ public class ExaminationActivity extends AppCompatActivity {
                         resultButton.setVisibility(View.VISIBLE);
                     }
                     if(rightEarFlag == 0){
-                        Toast.makeText(ExaminationActivity.this,"Ear swap", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ExaminationActivity.this,"Teraz nastąpi zmiana kanału emisji dźwięku, tak aby zbadać ucho prawe", Toast.LENGTH_SHORT).show();
                         leftRbutton.setChecked(false);
                         leftRbutton.setEnabled(false);
                         rightRbutton.setEnabled(true);
@@ -197,7 +197,7 @@ public class ExaminationActivity extends AppCompatActivity {
                     }
 
                     i++;
-                    Toast.makeText(ExaminationActivity.this,"Max volume", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ExaminationActivity.this,"Maksymalny poziom dźwięku", Toast.LENGTH_SHORT).show();
                     j=0;
                 }
                 updateText();

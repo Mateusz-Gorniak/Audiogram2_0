@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
                 String txt_password = password.getText().toString();
 
                 if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)) {
-                    Toast.makeText(LoginActivity.this, "Empty credentalis", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Uzupełnij pola logowania!", Toast.LENGTH_SHORT).show();
                 } else {
                     loginUser(txt_email, txt_password);
                 }
@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();
                 } else {
-                    Toast.makeText(LoginActivity.this, "Logging failed!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Logowanie nie powiodło się !", Toast.LENGTH_SHORT).show();
                     email.setText("");
                     password.setText("");
                 }

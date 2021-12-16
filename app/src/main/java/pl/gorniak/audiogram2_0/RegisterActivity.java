@@ -66,11 +66,11 @@ public class RegisterActivity extends AppCompatActivity {
                 String txt_lastexaminaton = "Brak badań";
 
                 if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)) {
-                    Toast.makeText(RegisterActivity.this, "Empty credentalis", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Uzupełnij pola logowania", Toast.LENGTH_SHORT).show();
                 }else if (txt_password.length() < 6){
-                    Toast.makeText(RegisterActivity.this, "Password is too short", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Hasło jest zbyt krótkie", Toast.LENGTH_SHORT).show();
                 }else if (txt_fullname.length() == 0){
-                    Toast.makeText(RegisterActivity.this, "Full Name is required!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Imię i nazwisko jest wymagane", Toast.LENGTH_SHORT).show();
                 }else{
                     user = new User(txt_fullname,txt_phoneNumber,txt_location,txt_email,txt_lastexaminaton);
                     registerUser(txt_email,txt_password);
@@ -86,14 +86,14 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    Toast.makeText(RegisterActivity.this,"Registering succesful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this,"Rejstracja powiodła się!", Toast.LENGTH_SHORT).show();
                     //startActivity(new Intent(RegisterActivity.this,StartActivity.class));
                     FirebaseUser user = auth.getCurrentUser();
                     updateUI(user);
                     finish();
                 }
                 else{
-                    Toast.makeText(RegisterActivity.this,"Registration failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this,"Rejstracja nie powiodła się!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
